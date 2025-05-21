@@ -12,16 +12,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
         .card {
             background: #fff0f6;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(179,0,89,0.1);
-            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(179,0,89,0.13);
+            padding: 40px 30px 30px 30px;
             text-align: center;
-            max-width: 400px;
+            max-width: 540px;
+            position: relative;
         }
         h1 {
             font-size: 2.5em;
@@ -81,6 +82,31 @@
         button:hover {
             background: #b30059;
         }
+        .photos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            margin: 24px 0 10px 0;
+        }
+        .photos img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(179,0,89,0.10);
+            border: 3px solid #ffb3d1;
+            background: #fff;
+            transition: transform 0.2s;
+        }
+        .photos img:hover {
+            transform: scale(1.07) rotate(-2deg);
+            border-color: #ff3385;
+        }
+        @media (max-width: 600px) {
+            .card { max-width: 98vw; padding: 20px 4vw; }
+            .photos img { width: 80px; height: 80px; }
+        }
     </style>
 </head>
 <body>
@@ -99,9 +125,22 @@
         <div class="card">
             <div class="heart">❤️</div>
             <h1>Eu te amo, meu amor!</h1>
+            <div class="photos">
+                <!-- Substitua os src abaixo pelos links das suas fotos ou arquivos locais -->
+                <img src="1" alt="Foto nossa 1">
+                <img src="2" alt="Foto nossa 2">
+                <img src="3" alt="Foto nossa 3">
+                <img src="4" alt="Foto nossa 4">
+                <img src="5" alt="Foto nossa 5">
+                <img src="6" alt="Foto nossa 6">
+                <img src="7" alt="Foto nossa 7">
+                <img src="8" alt="Foto nossa 8">
+                <img src="9" alt="Foto nossa 9">
+                <img src="10" alt="Foto nossa 10">
+            </div>
             <p>
-                Este site é só para dizer o quanto você é especial para mim.<br>
-                Obrigado por existir e fazer parte da minha vida.<br>
+                Esta mensagem é só para dizer o quanto você é especial para mim.<br>
+                Obrigado por existir e fazer parte da minha vida. Quero casar com você minha princesa!<br>
                 Te amo hoje e sempre!
             </p>
         </div>
