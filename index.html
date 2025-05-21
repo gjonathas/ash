@@ -40,24 +40,100 @@
         @keyframes pulse {
             to { transform: scale(1.15); }
         }
+        .hidden {
+            display: none;
+        }
+        .error {
+            color: #d1004b;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+        .password-card {
+            background: #fff0f6;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(179,0,89,0.1);
+            padding: 32px 24px;
+            text-align: center;
+            max-width: 350px;
+        }
+        label {
+            font-size: 1.1em;
+        }
+        input[type="password"] {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ffb3d1;
+            margin-top: 10px;
+            font-size: 1em;
+            width: 80%;
+        }
+        button {
+            margin-top: 16px;
+            padding: 8px 24px;
+            border: none;
+            border-radius: 8px;
+            background: #ff3385;
+            color: #fff;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #b30059;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="heart">❤️</div>
-        <h1>Eu te amo, meu amor!</h1>
-        <p>
-            Este site é só para dizer o quanto você é especial para mim.<br>
-            Obrigado por existir e fazer parte da minha vida.<br>
-            Te amo hoje e sempre!
-        </p>
+    <div id="password-section" class="password-card">
+        <form id="password-form" autocomplete="off">
+            <label for="password">
+                Qual data com mês e ano que só de lembrar me deixa feliz?
+            </label><br>
+            <input type="password" id="password" name="password" placeholder="dd/mm/aaaa" required>
+            <br>
+            <button type="submit">Entrar</button>
+            <div id="error-message" class="error hidden">Senha incorreta. Tente novamente!</div>
+        </form>
     </div>
-    <footer style="margin-top: 24px; color: #b30059; font-size: 1.1em; text-align: center;">
-        <hr style="border: none; border-top: 1px solid #ffb3d1; margin: 16px 0;">
-        <div>
-            Para minha Ciumenta,<br>
-            <strong>Ass: GJ 💖</strong>
+    <div id="main-content" class="hidden">
+        <div class="card">
+            <div class="heart">❤️</div>
+            <h1>Eu te amo, meu amor!</h1>
+            <p>
+                Este site é só para dizer o quanto você é especial para mim.<br>
+                Obrigado por existir e fazer parte da minha vida.<br>
+                Te amo hoje e sempre!
+            </p>
         </div>
-    </footer>
+        <footer style="margin-top: 24px; color: #b30059; font-size: 1.1em; text-align: center;">
+            <hr style="border: none; border-top: 1px solid #ffb3d1; margin: 16px 0;">
+            <div>
+                Para minha Ciumenta,<br>
+                <strong>Ass: GJ 💖</strong>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const form = document.getElementById('password-form');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+        const passwordSection = document.getElementById('password-section');
+        const mainContent = document.getElementById('main-content');
+        const correctPassword = "11/01/2024";
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (passwordInput.value.trim() === correctPassword) {
+                passwordSection.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+            } else {
+                errorMessage.classList.remove('hidden');
+            }
+        });
+
+        passwordInput.addEventListener('input', function() {
+            errorMessage.classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
